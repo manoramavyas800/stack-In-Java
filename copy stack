@@ -1,0 +1,28 @@
+package stack;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class PrintStack {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Stack<Integer> stack=new Stack<>();
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++){
+            int num=sc.nextInt();
+            stack.push(num);
+        }
+        System.out.println(stack);
+        Stack<Integer> rt=new Stack<>();
+        while(!stack.isEmpty()){
+            rt.push(stack.pop());
+        }
+        System.out.println(rt);
+        Stack<Integer> rt2=new Stack<>();
+        while(!rt.isEmpty()){
+            rt2.push(rt.pop());
+        }
+        System.out.println(rt2);
+
+    }
+}
