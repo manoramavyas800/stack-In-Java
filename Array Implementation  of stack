@@ -1,0 +1,70 @@
+package stack;
+public class PrintStack {
+    public  static class Stack{
+       private int[] arr=new int[10];
+         private int idx=0;
+        public  void push(int x){
+            if(isFull()){
+                System.out.println("Stack is full");
+                return;
+            }
+            arr[idx]=x;
+            idx++;
+        }
+        public  int peek(){
+            if(idx==0){
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            return arr[idx-1];
+        }
+        public int pop(){
+            if(idx==0){
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            int top=arr[idx-1];
+            arr[idx-1]=0;
+            idx--;
+            return top;
+        }
+        boolean isEmpty(){
+            return idx == 0;
+        }
+        boolean isFull(){
+            return idx == arr.length;
+        }
+        int size(){
+            return idx;
+        }
+        int capacity(){
+            return arr.length;
+        }
+        void printStack(){
+            if(isEmpty()){
+                System.out.println("Stack is empty");
+                return;
+            }
+            for(int i=0;i<idx;i++){
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack st=new Stack();
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.push(4);
+       st.printStack();
+        System.out.println(st.peek());
+        st.pop();
+        st.printStack();
+        System.out.println(st.size());
+        System.out.println(st.isEmpty());
+        System.out.println(st.peek());
+        System.out.println(st.capacity());
+    }
+}
